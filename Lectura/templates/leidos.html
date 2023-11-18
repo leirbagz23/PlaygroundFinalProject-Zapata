@@ -1,0 +1,25 @@
+{% extends 'index.html' %}
+{% block ContenidoVariable1 %}
+<h3>{{title}}</h3>
+{% endblock ContenidoVariable1 %}
+{% block ContenidoVariable2 %}
+<h2>Libros leidos</h2>
+<ul>
+    {% for libro in leidos %}
+        <li>Título: {{libro.titulo}} - Autor: {{libro.autor}} - Año de publicación: {{libro.año_publicacion}}
+            <button type="button" class="btn btn-sm"><a href="{% url 'borrar_leido' libro.titulo %}"> Eliminar</a></button>
+            <button type="button" class="btn btn-sm"><a href="{% url 'editar_leido' libro.titulo %}"> Editar</a></button>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock ContenidoVariable2 %}
+{% block ContenidoVariable4 %}
+<h1>Registrar libro leido</h1>
+<form action="/leidos/" method="post">{% csrf_token %}
+    <p>Titulo del libro: <input type="text" name="titulo">
+    <p>Autor del libro: <input type="text" name="autor">
+    <p>Año de publicación: <input type="number" name="año_publicacion">
+    <input type="submit" value="Registrar">
+    </p>
+</form>
+{% endblock ContenidoVariable4 %}

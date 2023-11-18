@@ -1,0 +1,10 @@
+{% extends 'index.html' %}
+{% block ContenidoVariable1 %}
+<h3>Cambiar contraseña</h3>
+<form action="" method="post">{% csrf_token %}
+    {{form}}
+    <input type="submit" value="Guardar">
+</form>
+{% endblock ContenidoVariable1 %}
+{% block ContenidoVariable4 %}
+{% endblock ContenidoVariable4 %}

@@ -1,0 +1,11 @@
+{% extends 'index.html' %}
+{% block ContenidoVariable1 %}
+<h3>Editar Usuario</h3>
+<form action="" method="post">{% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Guardar">
+</form>
+<button type="button" class="btn btn-lg"><a href="{% url 'cambiar_contraseña' %}"> Cambiar contraseña</a></button>
+{% endblock ContenidoVariable1 %}
+{% block ContenidoVariable4 %}
+{% endblock ContenidoVariable4 %}

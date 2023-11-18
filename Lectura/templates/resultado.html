@@ -1,0 +1,49 @@
+{% extends 'index.html' %}
+{% block ContenidoVariable1 %}
+<h2>{{title}}</h2>
+<h2>{{busqueda}}</h2>
+<h3>Libros abandonados</h3>
+{% if resultado4 %}
+<h3>Libros encontrados: {{resultado4|length}}</h3>
+<ul>
+{% for libro in resultado4 %}
+    <li>Título: {{libro.titulo}} - Autor: {{libro.autor}} - Año de publicación: {{libro.año_publicacion}}</li>
+{% endfor %}
+</ul>
+{% else %}
+<p>No se encontraron resultados</p>
+{% endif %}
+<h3>Libros leidos</h3>
+{% if resultado1 %}
+<h3>Libros encontrados: {{resultado1|length}}</h3>
+<ul>
+{% for libro in resultado1 %}
+    <li>Título: {{libro.titulo}} - Autor: {{libro.autor}} - Año de publicación: {{libro.año_publicacion}}</li>
+{% endfor %}
+</ul>
+{% else %}
+<p>No se encontraron resultados</p>
+{% endif %}
+<h3>Actualmente leyendo</h3>
+{% if resultado2 %}
+<h3>Libros encontrados: {{resultado2|length}}</h3>
+<ul>
+{% for libro in resultado2 %}
+    <li>Título: {{libro.titulo}} - Autor: {{libro.autor}} - Año de publicación: {{libro.año_publicacion}}</li>
+{% endfor %}
+</ul>
+{% else %}
+<p>No se encontraron resultados</p>
+{% endif %}
+<h3>Libros por leer</h3>
+{% if resultado3 %}
+<h3>Libros encontrados: {{resultado3|length}}</h3>
+<ul>
+{% for libro in resultado3 %}
+    <li>Título: {{libro.titulo}} - Autor: {{libro.autor}} - Año de publicación: {{libro.año_publicacion}}</li>
+{% endfor %}
+</ul>
+{% else %}
+<p>No se encontraron resultados</p>
+{% endif %}
+{% endblock ContenidoVariable1 %}
