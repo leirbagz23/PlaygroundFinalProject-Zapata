@@ -67,12 +67,19 @@
                 <li class="nav-item">
                   <a class="nav-link" href={% url 'busqueda' %}>Búsqueda</a>
                 </li>
+                {% if not request.user.is_authenticated %}
                 <li class="nav-item">
                   <a class="nav-link" href={% url 'login' %}>Iniciar Sesión</a>
+                </li>
+                {% else %}
+                <li>
+                  <li class="nav-item">
+                    <a class="nav-link">HOLA {{user}}</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href={% url 'logout' %}>Cerrar Sesión</a>
                 </li>
+                {% endif %}
               </ul>
             </div>
           </div>

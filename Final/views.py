@@ -89,6 +89,7 @@ def leyendo(request):
         leyendo_formulario=Leyendo()
         return render(request,'leyendo.html',{'title':title,"leyendo_formulario":leyendo_formulario, 'leyendo':leyendos})
 #Pagina utilizada para borrar un registro del modelo Abandonados
+@login_required
 def borrar_abandonado(request,libro_titulo):
     libro=Abandonados.objects.get(titulo=libro_titulo)
     libro.delete()
@@ -98,6 +99,7 @@ def borrar_abandonado(request,libro_titulo):
     por_leer=Por_Leer.objects.all
     return render(request,'home.html',{'abandonados':abandonados,'leidos':leidos,'leyendo':leyendo,'por_leer':por_leer})
 #Pagina utilizada para borrar un registro del modelo Leidos
+@login_required
 def borrar_leido(request,libro_titulo):
     libro=Leidos.objects.get(titulo=libro_titulo)
     libro.delete()
@@ -107,6 +109,7 @@ def borrar_leido(request,libro_titulo):
     por_leer=Por_Leer.objects.all
     return render(request,'home.html',{'abandonados':abandonados,'leidos':leidos,'leyendo':leyendo,'por_leer':por_leer})
 #Pagina utilizada para borrar un registro del modelo Leyendo
+@login_required
 def borrar_leyendo(request,libro_titulo):
     libro=Leyendo.objects.get(titulo=libro_titulo)
     libro.delete()
@@ -116,6 +119,7 @@ def borrar_leyendo(request,libro_titulo):
     por_leer=Por_Leer.objects.all
     return render(request,'home.html',{'abandonados':abandonados,'leidos':leidos,'leyendo':leyendo,'por_leer':por_leer})
 #Pagina utilizada para borrar un registro del modelo Por_Leer
+@login_required
 def borrar_porleer(request,libro_titulo):
     libro=Por_Leer.objects.get(titulo=libro_titulo)
     libro.delete()
@@ -130,6 +134,7 @@ def busqueda(request):
     title='Busqueda en las bases de datos'
     return render(request,'busqueda.html',{'title':title})
 #Pagina que muestra los resultados obtenidos de acuerdo a la búsqueda realizada en la página busqueda
+@login_required
 def resultado_busqueda(request):
     title='Resultados de la búsqueda'
     if request.GET["titulo"]:

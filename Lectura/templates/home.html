@@ -10,6 +10,9 @@
 <h3>Cantidad de libros por leer: {{por_leer|length}} </h3>
 {% endblock ContenidoVariable1 %}
 {% block ContenidoVariable2 %}
+{% if not request.user.is_authenticated %}
+<h2>Inicia sesión para ver y editar el contenido de los registros de lecturas</h2>
+{% else %}
 <h2>Libros abandonados</h2>
 <ul>
     {% for libro in abandonados %}
@@ -46,4 +49,5 @@
         </li>
     {% endfor %}
 </ul>
+{% endif %}
 {% endblock ContenidoVariable2 %}
